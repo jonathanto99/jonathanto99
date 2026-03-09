@@ -12,12 +12,15 @@
 *.xlt
 *.mov
 *.mp4
+*.mp3
 *.fcs
 *.exe
 *.dll
 *.msi
 *.so
 *.log
+*.tsv
+*.heic
 
 # Python
 __pycache__/
