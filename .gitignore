@@ -16,7 +16,6 @@
 *.exe
 *.dll
 *.msi
-*.tsv
 
 # Python
 __pycache__/
