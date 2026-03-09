@@ -1,0 +1,10 @@
+[workspace]
+authors = ["Jonathan (ShueYi) To <toshuyi@gmail.com>"]
+channels = ["conda-forge"]
+name = "JonathanTo99"
+platforms = ["win-64"]
+version = "0.1.1"
+
+[tasks]
+
+[dependencies]
