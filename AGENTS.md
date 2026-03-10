@@ -1,6 +1,6 @@
-# AI Coding Assistant Instructions
+# Agentic AI Coding Assistant Instructions
 
-These instructions define how the AI assistant should behave when helping with code, scripts, and repository management in this project.
+These instructions define how the AI assistants should behave when helping with code, scripts, and repository management in this project.
 
 ---
 
