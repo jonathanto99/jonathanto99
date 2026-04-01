@@ -121,6 +121,7 @@ Thumbs.db
 desktop.ini
 
 # Temporary files
+*.quarto/
 *.tmp
 *.temp
 .cache/
