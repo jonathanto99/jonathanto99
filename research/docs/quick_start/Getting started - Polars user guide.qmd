@@ -4,6 +4,7 @@ source: "https://docs.pola.rs/user-guide/getting-started/"
 created: 2026-03-07
 tags:
   - "clippings"
+  - python
 ---
 [Skip to content](https://docs.pola.rs/user-guide/getting-started/#getting-started)
 

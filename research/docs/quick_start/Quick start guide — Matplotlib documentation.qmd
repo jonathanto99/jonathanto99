@@ -4,6 +4,7 @@ source: "https://matplotlib.org/stable/users/explain/quick_start.html"
 created: 2026-03-07
 tags:
   - "clippings"
+  - python
 ---
 Note
 
