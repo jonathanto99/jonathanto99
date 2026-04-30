@@ -6,6 +6,7 @@ tags:
   - "clippings"
   - python
 ---
+
 Note
 
 to download the full example code.
@@ -14,7 +15,7 @@ to download the full example code.
 
 This tutorial covers some basic usage patterns and best practices to help you get started with Matplotlib.
 
-```python
+``` python
 import matplotlib.pyplot as plt
 import numpy as np
 ```
@@ -23,7 +24,7 @@ import numpy as np
 
 Matplotlib graphs your data on [`Figure`](https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure "matplotlib.figure.Figure") s (e.g., windows, Jupyter widgets, etc.), each of which can contain one or more [`Axes`](https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes "matplotlib.axes.Axes"), an area where points can be specified in terms of x-y coordinates (or theta-r in a polar plot, x-y-z in a 3D plot, etc.). The simplest way of creating a Figure with an Axes is using [`pyplot.subplots`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots "matplotlib.pyplot.subplots"). We can then use [`Axes.plot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot "matplotlib.axes.Axes.plot") to draw some data on the Axes, and [`show`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show "matplotlib.pyplot.show") to display the figure:
 
-```python
+``` python
 fig, ax = plt.subplots()             # Create a figure containing a single Axes.
 ax.plot([1, 2, 3, 4], [1, 4, 2, 3])  # Plot some data on the Axes.
 plt.show()                           # Show the figure.
@@ -37,7 +38,7 @@ Depending on the environment you are working in, `plt.show()` can be left out. T
 
 Here are the components of a Matplotlib Figure.
 
-![../../_images/anatomy.png](https://matplotlib.org/stable/_images/anatomy.png)
+![../../\_images/anatomy.png](https://matplotlib.org/stable/_images/anatomy.png)
 
 ### Figure
 
@@ -45,7 +46,7 @@ The **whole** figure. The Figure keeps track of all the child [`Axes`](https://m
 
 Typically, you'll create a new Figure through one of the following functions:
 
-```python
+``` python
 fig = plt.figure()             # an empty figure with no Axes
 fig, ax = plt.subplots()       # a figure with a single Axes
 fig, axs = plt.subplots(2, 2)  # a figure with a 2x2 grid of Axes
@@ -76,14 +77,14 @@ Basically, everything visible on the Figure is an Artist (even [`Figure`](https:
 
 Plotting functions expect [`numpy.array`](https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array "(in NumPy v2.3)") or [`numpy.ma.masked_array`](https://numpy.org/doc/stable/reference/generated/numpy.ma.masked_array.html#numpy.ma.masked_array "(in NumPy v2.3)") as input, or objects that can be passed to [`numpy.asarray`](https://numpy.org/doc/stable/reference/generated/numpy.asarray.html#numpy.asarray "(in NumPy v2.3)"). Classes that are similar to arrays ('array-like') such as [`pandas`](https://pandas.pydata.org/pandas-docs/stable/index.html#module-pandas "(in pandas v2.3.3)") data objects and [`numpy.matrix`](https://numpy.org/doc/stable/reference/generated/numpy.matrix.html#numpy.matrix "(in NumPy v2.3)") may not work as intended. Common convention is to convert these to [`numpy.array`](https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array "(in NumPy v2.3)") objects prior to plotting. For example, to convert a [`numpy.matrix`](https://numpy.org/doc/stable/reference/generated/numpy.matrix.html#numpy.matrix "(in NumPy v2.3)")
 
-```python
+``` python
 b = np.matrix([[1, 2], [3, 4]])
 b_asarray = np.asarray(b)
 ```
 
 Most methods will also parse a string-indexable object like a *dict*, a [structured numpy array](https://numpy.org/doc/stable/user/basics.rec.html#structured-arrays), or a [`pandas.DataFrame`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame "(in pandas v2.3.3)"). Matplotlib allows you to provide the `data` keyword argument and generate plots passing the strings corresponding to the *x* and *y* variables.
 
-```python
+``` python
 np.random.seed(19680801)  # seed the random number generator.
 data = {'a': np.arange(50),
         'c': np.random.randint(0, 50, 50),
@@ -112,7 +113,7 @@ See [Matplotlib Application Interfaces (APIs)](https://matplotlib.org/stable/use
 
 So one can use the OO-style
 
-```python
+``` python
 x = np.linspace(0, 2, 100)  # Sample data.
 
 # Note that even in the OO-style, we use \`.pyplot.figure\` to create the Figure.
@@ -130,7 +131,7 @@ ax.legend()  # Add a legend.
 
 or the pyplot-style:
 
-```python
+``` python
 x = np.linspace(0, 2, 100)  # Sample data.
 
 plt.figure(figsize=(5, 2.7), layout='constrained')
@@ -157,7 +158,7 @@ You may find older examples that use the `pylab` interface, via `from pylab impo
 
 If you need to make the same plots over and over again with different data sets, or want to easily wrap Matplotlib methods, use the recommended signature function below.
 
-```python
+``` python
 def my_plotter(ax, data1, data2, param_dict):
     """
     A helper function to make a graph.
@@ -168,7 +169,7 @@ def my_plotter(ax, data1, data2, param_dict):
 
 which you would then use twice to populate two subplots:
 
-```python
+``` python
 data1, data2, data3, data4 = np.random.randn(4, 100)  # make 4 random data sets
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(5, 2.7))
 my_plotter(ax1, data1, data2, {'marker': 'x'})
@@ -205,7 +206,7 @@ Marker size depends on the method being used. [`plot`](https://matplotlib.org/st
 
 Matplotlib accepts TeX equation expressions in any text expression. For example to write the expression $σi=15$ in the title, you can write a TeX expression surrounded by dollar signs:
 
-```python
+``` python
 ax.set_title(r'$\sigma_i=15$')
 ```
 
@@ -215,7 +216,7 @@ where the `r` preceding the title string signifies that the string is a *raw* st
 
 We can also annotate points on a plot, often by connecting an arrow pointing to *xy*, to a piece of text at *xytext*:
 
-```python
+``` python
 fig, ax = plt.subplots(figsize=(5, 2.7))
 
 t = np.arange(0.0, 5.0, 0.01)
@@ -256,7 +257,7 @@ The scale sets the mapping from data values to spacing along the Axis. This happ
 
 Each Axis has a tick *locator* and *formatter* that choose where along the Axis objects to put tick marks. A simple interface to this is [`set_xticks`](https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_xticks.html#matplotlib.axes.Axes.set_xticks "matplotlib.axes.Axes.set_xticks"):
 
-```python
+``` python
 fig, axs = plt.subplots(2, 1, layout='constrained')
 axs[0].plot(xdata, data1)
 axs[0].set_title('Automatic ticks')
@@ -317,7 +318,7 @@ You can open multiple Figures with multiple calls to `fig = plt.figure()` or `fi
 
 Multiple Axes can be added a number of ways, but the most basic is `plt.subplots()` as used above. One can achieve more complex layouts, with Axes objects spanning columns or rows, using [`subplot_mosaic`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot_mosaic.html#matplotlib.pyplot.subplot_mosaic "matplotlib.pyplot.subplot_mosaic").
 
-```python
+``` python
 fig, axd = plt.subplot_mosaic([['upleft', 'right'],
                                ['lowleft', 'right']], layout='constrained')
 axd['upleft'].set_title('upleft')
@@ -327,4 +328,4 @@ axd['right'].set_title('right')
 
 ![upleft, right, lowleft](https://matplotlib.org/stable/_images/sphx_glr_quick_start_018.png)
 
-Matplotlib has quite sophisticated tools for arranging Axes: See [Arranging multiple Axes in a Figure](https://matplotlib.org/stable/users/explain/axes/arranging_axes.html#arranging-axes) and [Complex and semantic figure composition (subplot\_mosaic)](https://matplotlib.org/stable/users/explain/axes/mosaic.html#mosaic).
+Matplotlib has quite sophisticated tools for arranging Axes: See [Arranging multiple Axes in a Figure](https://matplotlib.org/stable/users/explain/axes/arranging_axes.html#arranging-axes) and [Complex and semantic figure composition (subplot_mosaic)](https://matplotlib.org/stable/users/explain/axes/mosaic.html#mosaic).

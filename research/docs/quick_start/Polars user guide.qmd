@@ -6,6 +6,7 @@ tags:
   - "clippings"
   - python
 ---
+
 [Skip to content](https://docs.pola.rs/user-guide/getting-started/#getting-started)
 
 ## Getting started
@@ -14,11 +15,11 @@ This chapter is here to help you get started with Polars. It covers all the fund
 
 ## Installing Polars
 
-```js
+``` python
 pip install polars
 ```
 
-```js
+``` python
 cargo add polars -F lazy
 
 # Or Cargo.toml
@@ -32,7 +33,7 @@ Polars supports reading and writing for common file formats (e.g., csv, json, pa
 
 [`DataFrame`](https://docs.pola.rs/api/python/stable/reference/dataframe/index.html)
 
-```js
+``` python
 import polars as pl
 import datetime as dt
 
@@ -55,7 +56,7 @@ print(df)
 
 [`DataFrame`](https://docs.pola.rs/api/rust/dev/polars/frame/struct.DataFrame.html)
 
-```js
+``` js
 use chrono::prelude::*;
 use polars::prelude::*;
 
@@ -74,7 +75,7 @@ let mut df: DataFrame = df!(
 println!("{df}");
 ```
 
-```js
+``` python
 shape: (4, 4)
 ┌────────────────┬────────────┬────────┬────────┐
 │ name           ┆ birthdate  ┆ weight ┆ height │
@@ -92,7 +93,7 @@ In the example below we write the dataframe to a csv file called `output.csv`. A
 
 [`read_csv`](https://docs.pola.rs/api/python/stable/reference/api/polars.read_csv.html) · [`write_csv`](https://docs.pola.rs/api/python/stable/reference/api/polars.DataFrame.write_csv.html)
 
-```js
+``` python
 df.write_csv("docs/assets/data/output.csv")
 df_csv = pl.read_csv("docs/assets/data/output.csv", try_parse_dates=True)
 print(df_csv)
@@ -100,7 +101,7 @@ print(df_csv)
 
 [`CsvReader`](https://docs.pola.rs/api/rust/dev/polars/prelude/struct.CsvReader.html) · [`CsvWriter`](https://docs.pola.rs/api/rust/dev/polars/prelude/struct.CsvWriter.html) · [Available on feature csv](https://docs.pola.rs/user-guide/installation/#feature-flags "To use this functionality enable the feature flag csv")
 
-```js
+``` python
 shape: (4, 4)
 ┌────────────────┬────────────┬────────┬────────┐
 │ name           ┆ birthdate  ┆ weight ┆ height │
@@ -122,7 +123,7 @@ For more examples on the CSV file format and other data formats, see the [IO sec
 
 Here is an example of a Polars expression:
 
-```js
+``` python
 pl.col("weight") / (pl.col("height") ** 2)
 ```
 
@@ -143,7 +144,7 @@ The context `select` allows you to select and manipulate columns from a datafram
 
 [`select`](https://docs.pola.rs/api/python/stable/reference/dataframe/api/polars.DataFrame.select.html) · [`alias`](https://docs.pola.rs/api/python/stable/reference/expressions/api/polars.Expr.alias.html) · [`dt namespace`](https://docs.pola.rs/api/python/stable/reference/expressions/temporal.html)
 
-```js
+``` python
 result = df.select(
     pl.col("name"),
     pl.col("birthdate").dt.year().alias("birth_year"),
@@ -154,7 +155,7 @@ print(result)
 
 [`select`](https://docs.pola.rs/api/rust/dev/polars_lazy/frame/struct.LazyFrame.html#method.select) · [`alias`](https://docs.pola.rs/api/rust/dev/polars_lazy/dsl/enum.Expr.html#method.alias) · [`dt namespace`](https://docs.pola.rs/api/rust/dev/polars_lazy/dsl/dt/struct.DateLikeNameSpace.html) · [Available on feature temporal](https://docs.pola.rs/user-guide/installation/#feature-flags "To use this functionality enable the feature flag temporal")
 
-```js
+``` python
 let result = df
     .clone()
     .lazy()
@@ -167,7 +168,7 @@ let result = df
 println!("{result}");
 ```
 
-```js
+``` python
 shape: (4, 3)
 ┌────────────────┬────────────┬───────────┐
 │ name           ┆ birth_year ┆ bmi       │
@@ -185,7 +186,7 @@ Polars also supports a feature called “expression expansion”, in which one e
 
 [`select`](https://docs.pola.rs/api/python/stable/reference/dataframe/api/polars.DataFrame.select.html) · [`alias`](https://docs.pola.rs/api/python/stable/reference/expressions/api/polars.Expr.alias.html) · [`name namespace`](https://docs.pola.rs/api/python/stable/reference/expressions/name.html)
 
-```js
+``` python
 result = df.select(
     pl.col("name"),
     (pl.col("weight", "height") * 0.95).round(2).name.suffix("-5%"),
@@ -195,7 +196,7 @@ print(result)
 
 [`select`](https://docs.pola.rs/api/rust/dev/polars_lazy/frame/struct.LazyFrame.html#method.select) · [`alias`](https://docs.pola.rs/api/rust/dev/polars_lazy/dsl/enum.Expr.html#method.alias) · [`name namespace`](https://docs.pola.rs/api/rust/dev/polars_lazy/dsl/struct.ExprNameNameSpace.html) · [Available on feature lazy](https://docs.pola.rs/user-guide/installation/#feature-flags "To use this functionality enable the feature flag lazy")
 
-```js
+``` python
 let result = df
     .clone()
     .lazy()
@@ -210,7 +211,7 @@ let result = df
 println!("{result}");
 ```
 
-```js
+``` python
 shape: (4, 3)
 ┌────────────────┬───────────┬───────────┐
 │ name           ┆ weight-5% ┆ height-5% │
@@ -226,13 +227,13 @@ shape: (4, 3)
 
 You can check other sections of the user guide to learn more about [basic operations](https://docs.pola.rs/user-guide/expressions/basic-operations/) or [column selections in expression expansion](https://docs.pola.rs/user-guide/expressions/expression-expansion/).
 
-### with\_columns
+### with_columns
 
 The context `with_columns` is very similar to the context `select` but `with_columns` adds columns to the dataframe instead of selecting them. Notice how the resulting dataframe contains the four columns of the original dataframe plus the two new columns introduced by the expressions inside `with_columns`:
 
 [`with_columns`](https://docs.pola.rs/api/python/stable/reference/dataframe/api/polars.DataFrame.with_columns.html)
 
-```js
+``` python
 result = df.with_columns(
     birth_year=pl.col("birthdate").dt.year(),
     bmi=pl.col("weight") / (pl.col("height") ** 2),
@@ -242,7 +243,7 @@ print(result)
 
 [`with_columns`](https://docs.pola.rs/api/rust/dev/polars_lazy/frame/struct.LazyFrame.html#method.with_columns)
 
-```js
+``` python
 let result = df
     .clone()
     .lazy()
@@ -254,7 +255,7 @@ let result = df
 println!("{result}");
 ```
 
-```js
+``` python
 shape: (4, 6)
 ┌────────────────┬────────────┬────────┬────────┬────────────┬───────────┐
 │ name           ┆ birthdate  ┆ weight ┆ height ┆ birth_year ┆ bmi       │
@@ -276,14 +277,14 @@ The context `filter` allows us to create a second dataframe with a subset of the
 
 [`filter`](https://docs.pola.rs/api/python/stable/reference/dataframe/api/polars.DataFrame.filter.html) · [`dt namespace`](https://docs.pola.rs/api/python/stable/reference/expressions/temporal.html)
 
-```js
+``` python
 result = df.filter(pl.col("birthdate").dt.year() < 1990)
 print(result)
 ```
 
 [`filter`](https://docs.pola.rs/api/rust/dev/polars_lazy/frame/struct.LazyFrame.html#method.filter) · [`dt namespace`](https://docs.pola.rs/api/rust/dev/polars_lazy/dsl/dt/struct.DateLikeNameSpace.html) · [Available on feature temporal](https://docs.pola.rs/user-guide/installation/#feature-flags "To use this functionality enable the feature flag temporal")
 
-```js
+``` python
 let result = df
     .clone()
     .lazy()
@@ -292,7 +293,7 @@ let result = df
 println!("{result}");
 ```
 
-```js
+``` python
 shape: (3, 4)
 ┌────────────────┬────────────┬────────┬────────┐
 │ name           ┆ birthdate  ┆ weight ┆ height │
@@ -309,7 +310,7 @@ You can also provide multiple predicate expressions as separate parameters, whic
 
 [`filter`](https://docs.pola.rs/api/python/stable/reference/dataframe/api/polars.DataFrame.filter.html) · [`is_between`](https://docs.pola.rs/api/python/stable/reference/expressions/api/polars.Expr.is_between.html)
 
-```js
+``` python
 result = df.filter(
     pl.col("birthdate").is_between(dt.date(1982, 12, 31), dt.date(1996, 1, 1)),
     pl.col("height") > 1.7,
@@ -317,9 +318,9 @@ result = df.filter(
 print(result)
 ```
 
-[`filter`](https://docs.pola.rs/api/rust/dev/polars_lazy/frame/struct.LazyFrame.html#method.filter) · [`is_between`](https://docs.pola.rs/api/rust/dev/polars/prelude/enum.Expr.html#method.is_between) · [Available on feature is\_between](https://docs.pola.rs/user-guide/installation/#feature-flags "To use this functionality enable the feature flag is_between")
+[`filter`](https://docs.pola.rs/api/rust/dev/polars_lazy/frame/struct.LazyFrame.html#method.filter) · [`is_between`](https://docs.pola.rs/api/rust/dev/polars/prelude/enum.Expr.html#method.is_between) · [Available on feature is_between](https://docs.pola.rs/user-guide/installation/#feature-flags "To use this functionality enable the feature flag is_between")
 
-```js
+``` python
 let result = df
     .clone()
     .lazy()
@@ -336,7 +337,7 @@ let result = df
 println!("{result}");
 ```
 
-```js
+``` python
 shape: (1, 4)
 ┌───────────┬────────────┬────────┬────────┐
 │ name      ┆ birthdate  ┆ weight ┆ height │
@@ -347,13 +348,13 @@ shape: (1, 4)
 └───────────┴────────────┴────────┴────────┘
 ```
 
-### group\_by
+### group_by
 
 The context `group_by` can be used to group together the rows of the dataframe that share the same value across one or more expressions. The example below counts how many people were born in each decade:
 
 [`group_by`](https://docs.pola.rs/api/python/stable/reference/dataframe/api/polars.DataFrame.group_by.html) · [`alias`](https://docs.pola.rs/api/python/stable/reference/expressions/api/polars.Expr.alias.html) · [`dt namespace`](https://docs.pola.rs/api/python/stable/reference/expressions/temporal.html)
 
-```js
+``` python
 result = df.group_by(
     (pl.col("birthdate").dt.year() // 10 * 10).alias("decade"),
     maintain_order=True,
@@ -363,7 +364,7 @@ print(result)
 
 [`group_by`](https://docs.pola.rs/api/rust/dev/polars_lazy/frame/struct.LazyFrame.html#method.group_by) · [`alias`](https://docs.pola.rs/api/rust/dev/polars_lazy/dsl/enum.Expr.html#method.alias) · [`dt namespace`](https://docs.pola.rs/api/rust/dev/polars_lazy/dsl/dt/struct.DateLikeNameSpace.html) · [Available on feature temporal](https://docs.pola.rs/user-guide/installation/#feature-flags "To use this functionality enable the feature flag temporal")
 
-```js
+``` python
 // Use \`group_by_stable\` if you want the Python behaviour of \`maintain_order=True\`.
 let result = df
     .clone()
@@ -374,7 +375,7 @@ let result = df
 println!("{result}");
 ```
 
-```js
+``` python
 shape: (2, 2)
 ┌────────┬─────┐
 │ decade ┆ len │
@@ -392,7 +393,7 @@ After using the context `group_by` we can use `agg` to compute aggregations over
 
 [`group_by`](https://docs.pola.rs/api/python/stable/reference/dataframe/api/polars.DataFrame.group_by.html) · [`agg`](https://docs.pola.rs/api/python/stable/reference/dataframe/api/polars.dataframe.group_by.GroupBy.agg.html)
 
-```js
+``` python
 result = df.group_by(
     (pl.col("birthdate").dt.year() // 10 * 10).alias("decade"),
     maintain_order=True,
@@ -406,7 +407,7 @@ print(result)
 
 [`group_by`](https://docs.pola.rs/api/rust/dev/polars_lazy/frame/struct.LazyFrame.html#method.group_by) · [`agg`](https://docs.rs/polars/latest/polars/prelude/struct.LazyGroupBy.html#method.agg)
 
-```js
+``` python
 let result = df
     .clone()
     .lazy()
@@ -423,7 +424,7 @@ let result = df
 println!("{result}");
 ```
 
-```js
+``` python
 shape: (2, 4)
 ┌────────┬─────────────┬────────────┬─────────┐
 │ decade ┆ sample_size ┆ avg_weight ┆ tallest │
@@ -439,7 +440,7 @@ Contexts and the expressions within can be chained to create more complex querie
 
 [`group_by`](https://docs.pola.rs/api/python/stable/reference/dataframe/api/polars.DataFrame.group_by.html) · [`agg`](https://docs.pola.rs/api/python/stable/reference/dataframe/api/polars.dataframe.group_by.GroupBy.agg.html) · [`select`](https://docs.pola.rs/api/python/stable/reference/dataframe/api/polars.DataFrame.select.html) · [`with_columns`](https://docs.pola.rs/api/python/stable/reference/dataframe/api/polars.DataFrame.with_columns.html) · [`str namespace`](https://docs.pola.rs/api/python/stable/reference/expressions/string.html) · [`list namespace`](https://docs.pola.rs/api/python/stable/reference/expressions/list.html)
 
-```js
+``` python
 result = (
     df.with_columns(
         (pl.col("birthdate").dt.year() // 10 * 10).alias("decade"),
@@ -462,7 +463,7 @@ print(result)
 
 [`group_by`](https://docs.pola.rs/api/rust/dev/polars_lazy/frame/struct.LazyFrame.html#method.group_by) · [`agg`](https://docs.rs/polars/latest/polars/prelude/struct.LazyGroupBy.html#method.agg) · [`select`](https://docs.pola.rs/api/rust/dev/polars_lazy/frame/struct.LazyFrame.html#method.select) · [`with_columns`](https://docs.pola.rs/api/rust/dev/polars_lazy/frame/struct.LazyFrame.html#method.with_columns) · [`str namespace`](https://docs.pola.rs/api/rust/dev/polars/prelude/trait.StringNameSpaceImpl.html) · [`list namespace`](https://docs.pola.rs/api/rust/dev/polars_lazy/dsl/struct.ListNameSpace.html) · [Available on feature strings](https://docs.pola.rs/user-guide/installation/#feature-flags "To use this functionality enable the feature flag strings")
 
-```js
+``` python
 let result = df
     .clone()
     .lazy()
@@ -485,7 +486,7 @@ let result = df
 println!("{result}");
 ```
 
-```js
+``` python
 shape: (2, 4)
 ┌────────┬────────────────────────────┬────────────┬────────────┐
 │ decade ┆ name                       ┆ avg_weight ┆ avg_height │
@@ -507,7 +508,7 @@ Polars provides many different join algorithms. The example below shows how to u
 
 [`join`](https://docs.pola.rs/api/python/stable/reference/dataframe/api/polars.DataFrame.join.html)
 
-```js
+``` python
 df2 = pl.DataFrame(
     {
         "name": ["Ben Brown", "Daniel Donovan", "Alice Archer", "Chloe Cooper"],
@@ -521,7 +522,7 @@ print(df.join(df2, on="name", how="left"))
 
 [`join`](https://docs.pola.rs/api/rust/dev/polars/prelude/trait.DataFrameJoinOps.html#method.join)
 
-```js
+``` python
 let df2: DataFrame = df!(
     "name" => ["Ben Brown", "Daniel Donovan", "Alice Archer", "Chloe Cooper"],
     "parent" => [true, false, false, false],
@@ -543,7 +544,7 @@ let result = df
 println!("{result}");
 ```
 
-```js
+``` python
 shape: (4, 6)
 ┌────────────────┬────────────┬────────┬────────┬────────┬──────────┐
 │ name           ┆ birthdate  ┆ weight ┆ height ┆ parent ┆ siblings │
@@ -565,7 +566,7 @@ Concatenating dataframes creates a taller or wider dataframe, depending on the m
 
 [`concat`](https://docs.pola.rs/api/python/stable/reference/api/polars.concat.html)
 
-```js
+``` python
 df3 = pl.DataFrame(
     {
         "name": ["Ethan Edwards", "Fiona Foster", "Grace Gibson", "Henry Harris"],
@@ -585,7 +586,7 @@ print(pl.concat([df, df3], how="vertical"))
 
 [`concat`](https://docs.pola.rs/api/rust/dev/polars_lazy/dsl/functions/fn.concat.html)
 
-```js
+``` python
 let df3: DataFrame = df!(
     "name" => ["Ethan Edwards", "Fiona Foster", "Grace Gibson", "Henry Harris"],
     "birthdate" => [
@@ -603,7 +604,7 @@ let result = concat([df.clone().lazy(), df3.lazy()], UnionArgs::default())?.coll
 println!("{result}");
 ```
 
-```js
+``` python
 shape: (8, 4)
 ┌────────────────┬────────────┬────────┬────────┐
 │ name           ┆ birthdate  ┆ weight ┆ height │

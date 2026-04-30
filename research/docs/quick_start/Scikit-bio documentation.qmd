@@ -7,6 +7,7 @@ tags:
   - "clippings"
   - python
 ---
+
 ## Biological Sequences ()
 
 This module provides functionality for storing and working with sequences, including molecular sequences based on IUPAC-defined alphabets ([`DNA`](https://scikit.bio/docs/latest/generated/skbio.sequence.DNA.html#skbio.sequence.DNA "skbio.sequence.DNA"), [`RNA`](https://scikit.bio/docs/latest/generated/skbio.sequence.RNA.html#skbio.sequence.RNA "skbio.sequence.RNA"),[`Protein`](https://scikit.bio/docs/latest/generated/skbio.sequence.Protein.html#skbio.sequence.Protein "skbio.sequence.Protein")), sequences based on custom alphabets ([`GrammaredSequence`](https://scikit.bio/docs/latest/generated/skbio.sequence.GrammaredSequence.html#skbio.sequence.GrammaredSequence "skbio.sequence.GrammaredSequence")), and generic/non-biological sequences with no alphabet restrictions ([`Sequence`](https://scikit.bio/docs/latest/generated/skbio.sequence.Sequence.html#skbio.sequence.Sequence "skbio.sequence.Sequence")).
@@ -18,7 +19,7 @@ See the section for working with biological sequences using scikit-bio.
 ## Sequence types
 
 | [`Sequence`](https://scikit.bio/docs/latest/generated/skbio.sequence.Sequence.html#skbio.sequence.Sequence "skbio.sequence.Sequence") | Store generic sequence data and optional associated metadata. |
-| --- | --- |
+|------------------------------------|------------------------------------|
 | [`GrammaredSequence`](https://scikit.bio/docs/latest/generated/skbio.sequence.GrammaredSequence.html#skbio.sequence.GrammaredSequence "skbio.sequence.GrammaredSequence") | Store sequence data conforming to a character set. |
 | [`DNA`](https://scikit.bio/docs/latest/generated/skbio.sequence.DNA.html#skbio.sequence.DNA "skbio.sequence.DNA") | Store DNA sequence data and optional associated metadata. |
 | [`RNA`](https://scikit.bio/docs/latest/generated/skbio.sequence.RNA.html#skbio.sequence.RNA "skbio.sequence.RNA") | Store RNA sequence data and optional associated metadata. |
@@ -27,18 +28,18 @@ See the section for working with biological sequences using scikit-bio.
 ## Sequence utilities
 
 | [`GeneticCode`](https://scikit.bio/docs/latest/generated/skbio.sequence.GeneticCode.html#skbio.sequence.GeneticCode "skbio.sequence.GeneticCode") | Genetic code for translating codons to amino acids. |
-| --- | --- |
+|------------------------------------|------------------------------------|
 | [`SubstitutionMatrix`](https://scikit.bio/docs/latest/generated/skbio.sequence.SubstitutionMatrix.html#skbio.sequence.SubstitutionMatrix "skbio.sequence.SubstitutionMatrix") | Scoring matrix between characters in biological sequences. |
 
 ## Distance calculation
 
 | [`distance`](https://scikit.bio/docs/latest/generated/skbio.sequence.distance.html#module-skbio.sequence.distance "skbio.sequence.distance") | Sequence distance metrics (skbio.sequence.distance) |
-| --- | --- |
+|------------------------------------|------------------------------------|
 
 ## Abstract classes
 
 | [`NucleotideMixin`](https://scikit.bio/docs/latest/generated/skbio.sequence.NucleotideMixin.html#skbio.sequence.NucleotideMixin "skbio.sequence.NucleotideMixin") | Mixin for adding functionality for working with sequences of nucleotides. |
-| --- | --- |
+|------------------------------------|------------------------------------|
 
 ## Tutorial
 
@@ -46,7 +47,7 @@ See the section for working with biological sequences using scikit-bio.
 
 Create a DNA sequence from a string of nucleotide characters:
 
-```
+``` python         
 >>> from skbio.sequence import DNA
 >>> seq = DNA('GAATTC')
 >>> seq
@@ -60,11 +61,11 @@ Stats:
     GC-content: 33.33%
 --------------------------
 0 GAATTC
-```
+``` python
 
 Optionally, one may attach metadata to a sequence object. Details of metadata are introduced in below.
 
-```
+``` python         
 >>> seq = DNA('GAATTC', metadata={'id': 'S1', 'description': 'EcoRI recognition site'})
 >>> seq
 DNA
@@ -80,22 +81,22 @@ Stats:
     GC-content: 33.33%
 -------------------------------------------
 0 GAATTC
-```
+``` python
 
 Sequences can be read from [`file formats`](https://scikit.bio/docs/latest/io.html#module-skbio.io "skbio.io") recognizable by scikit-bio. For example, to read a DNA sequence from a [`FASTA`](https://scikit.bio/docs/latest/generated/skbio.io.format.fasta.html#module-skbio.io.format.fasta "skbio.io.format.fasta") file:
 
-```
+``` python         
 >>> seq = DNA.read('input.fa', format='fasta')
-```
+``` python
 
 The filename “input.fa” can also be a file handle or other readable objects.
 
 To read all sequences from a multi-FASTA file into a list of sequence objects, you will need:
 
-```
+``` python         
 >>> from skbio.io import read as sk_read
 >>> seqs = list(sk_read('input.fa', format='fasta', constructor=DNA))
-```
+``` python
 
 ### Sequence grammar
 
@@ -108,7 +109,7 @@ The three common biological sequence types: `DNA`, `RNA` and `Protein`, are [`gr
 
 Use of any of these characters in the sequence data is valid. For example:
 
-```
+``` python         
 >>> seq = DNA('GCCRCCATGG', metadata={'name': 'Kozak consensus sequence'})
 >>> seq
 DNA
@@ -123,82 +124,82 @@ Stats:
     GC-content: 70.00%
 --------------------------------------
 0 GCCRCCATGG
-```
+``` python
 
 One can customize grammared sequence types, for example to include modified amino acids, methylation sites, or non-biological molecules. Refer to [`GrammaredSequence`](https://scikit.bio/docs/latest/generated/skbio.sequence.GrammaredSequence.html#skbio.sequence.GrammaredSequence "skbio.sequence.GrammaredSequence") for instructions.
 
 Each class contains a degenerate map for lookup:
 
-```
+``` python         
 >>> sorted(DNA.degenerate_map['R'])
 ['A', 'G']
-```
+``` python
 
 Check if a sequence contains degenerate characters:
 
-```
+``` python         
 >>> seq.has_degenerates()
 True
-```
+``` python
 
 Identify the positions of degenerate characters:
 
-```
+``` python         
 >>> seq.degenerates()
 array([False, False, False,  True, False, False, False, False, False,
        False], dtype=bool)
-```
+``` python
 
 Likewise, one can create a sequence with gaps, and identify the gap positions.
 
-```
+``` python         
 >>> gapped = DNA('ATG--CAC')
 >>> gapped.gaps()
 array([False, False, False,  True,  True, False, False, False], dtype=bool)
-```
+``` python
 
 One can efficiently remove all gaps from a sequence:
 
-```
+``` python         
 >>> ungapped = gapped.degap()
 >>> print(ungapped)
 ATGCAC
-```
+``` python
 
 ### Exploring sequences
 
 The primary information stored in a sequence object is the sequence data itself. It can be retrieved from the string representation of the sequence:
 
-```
+``` python         
 >>> str(seq)
 'GCCRCCATGG'
-```
+``` python
 
 Or:
 
-```
+``` python         
 >>> print(seq)
 GCCRCCATGG
-```
+``` python
 
 Under the hood, the sequence data is stored as a NumPy array of bytes, which permit compact storage and efficient, vectorized operations.
 
-```
+``` python         
 >>> seq.values
 array([b'G', b'C', b'C', b'R', b'C', b'C', b'A', b'T', b'G', b'G'],
       dtype='|S1')
-```
+``` python
 
 This array can also be viewed as ASCII code points:
 
-```
+``` python         
 >>> seq.values.view('uint8')
 array([71, 67, 67, 82, 67, 67, 65, 84, 71, 71], dtype=uint8)
-```
+``` python
 
 A sequence object shares typical behaviors of a Python string. This means that you can apply Python string **indexing** and **slicing** approaches on a sequence. For example:
 
-```
+``` python         
 >>> seq[0]
 DNA
 --------------------------------------
@@ -212,9 +213,9 @@ Stats:
     GC-content: 100.00%
 --------------------------------------
 0 G
-```
+``` python
 
-```
+``` python         
 >>> seq[2:5]
 DNA
 --------------------------------------
@@ -228,40 +229,40 @@ Stats:
     GC-content: 66.67%
 --------------------------------------
 0 CRC
-```
+``` python
 
 The output of indexing or slicing is also a sequence object. This process doesn’t copy the original sequence data. Instead, it returns a **view** of the same memory space, which is efficient. Refer to NumPy’s [copies and views](https://numpy.org/doc/stable/user/basics.copies.html) for more information.
 
-```
+``` python         
 >>> seq[2:5].values.base is seq.values.base
 True
-```
+``` python
 
 Some Python string methods, such as `count` and `index`, also work on scikit-bio sequences.
 
-```
+``` python         
 >>> seq.count('C')
 4
-```
+``` python
 
-```
+``` python         
 >>> seq.index('ATG')
 6
-```
+``` python
 
 To concatenate multiple sequences:
 
-```
+``` python         
 >>> seq = DNA.concat([DNA('GGATCC'), DNA('AAGCTT'), DNA('GAATTC')])
 >>> print(seq)
 GGATCCAAGCTTGAATTC
-```
+``` python
 
 ### Sequence conversion
 
 scikit-bio supports convenient conversion between DNA (two strands), RNA and protein sequences. For example:
 
-```
+``` python         
 >>> dna = DNA('TGCTACATCCAGAACTGCCCCCTGGGA', metadata={'name': 'oxytocin'})
 >>> dna
 DNA
@@ -276,97 +277,97 @@ Stats:
     GC-content: 59.26%
 -------------------------------
 0 TGCTACATCC AGAACTGCCC CCTGGGA
-```
+``` python
 
 Reverse complement a DNA sequence:
 
-```
+``` python         
 >>> print(dna.reverse_complement())
 TCCCAGGGGGCAGTTCTGGATGTAGCA
-```
+``` python
 
 Transcribe a DNA sequence into mRNA:
 
-```
+``` python         
 >>> rna = dna.transcribe()
 >>> print(rna)
 UGCUACAUCCAGAACUGCCCCCUGGGA
-```
+``` python
 
 Translate an mRNA sequence into protein:
 
-```
+``` python         
 >>> prot = rna.translate()
 >>> print(prot)
 CYIQNCPLG
-```
+``` python
 
 By default, the standard genetic code table (1) is used. To use a specific table (see the [`GeneticCode`](https://scikit.bio/docs/latest/generated/skbio.sequence.GeneticCode.html#skbio.sequence.GeneticCode "skbio.sequence.GeneticCode") class for details), simply specify its index:
 
-```
+``` python         
 >>> prot = rna.translate(11)  # Bacteria
-```
+``` python
 
 A DNA sequence can be directly translated into protein. The output is the same as transcription followed by translation.
 
-```
+``` python         
 >>> prot_ = dna.translate()
 >>> prot_ == prot
 True
-```
+``` python
 
 ### Searching for patterns
 
 Sequences can be searched for patterns, a.k.a., **motifs** in molecular biology. Except for searching for exact substrings using the `index` method (see above), one can also search for flexibly defined patterns using [regular expressions](https://en.wikipedia.org/wiki/Regular_expression).
 
-```
+``` python         
 >>> from skbio.sequence import RNA
 >>> seq = RNA('AGG-GGACUGAA')
 >>> for match in seq.find_with_regex('(G+AC[UT])'):
 ...     match
 slice(4, 9, None)
-```
+``` python
 
 The returned values are slices, with which one can extract the relevant subsequences.
 
-```
+``` python         
 >>> print(seq[match])
 GGACU
-```
+``` python
 
 scikit-bio has a convenience shortcut `find_motifs`, which searches for contiguous runs of purines or pyrimidines.
 
-```
+``` python         
 >>> for motif in seq.find_motifs('purine-run', min_length=2):
 ...     print(seq[motif])
 AGG
 GGA
 GAA
-```
+``` python
 
 ### Comparing sequences
 
 It is straightforward to compute the distance between two sequences. By default, the Hamming distance ([`hamming`](https://scikit.bio/docs/latest/generated/skbio.sequence.distance.hamming.html#skbio.sequence.distance.hamming "skbio.sequence.distance.hamming"), i.e., proportion of different sites) is calculated, This metric is useful in analyses such as sequence clustering and phylogenetic reconstruction.
 
-```
+``` python         
 >>> seq1 = RNA('GACCCGCUUU')
 >>> seq2 = RNA('GCCCCCCUUU')
 >>> seq1.distance(seq2)
 0.2
-```
+``` python
 
 Hamming distance requires that the two sequences have the same length. This often requires that you **align** the sequences before comparison. See [`skbio.alignment`](https://scikit.bio/docs/latest/alignment.html#module-skbio.alignment "skbio.alignment") for how to align sequences.
 
 Similarly, you can calculate the percent (dis)similarity between a pair of aligned sequences.
 
-```
+``` python         
 >>> seq1 = RNA('ACCGUUAGUC')
 >>> seq2 = RNA('ACGGGU--UC')
 >>> seq1.match_frequency(seq2, relative=True)
 0.6
 >>> seq1.mismatch_frequency(seq2, relative=True)
 0.4
-```
+``` python
 
 ### Annotating sequences
 
@@ -374,7 +375,7 @@ Metadata describe the properties of a sequence or some of its regions/sites. sci
 
 `metadata` stores the properties of the entire sequence, such as ID, description, source, function, etc., as a Python dictionary. The following example creates a DNA sequence with “gene” and “product” properties.
 
-```
+``` python         
 >>> seq = DNA('TGGTATATAGTTTAAACAAAACGAATGATTTCGACTCATTAAATTATGATAATCATATTTACCAA',
 ...           metadata={'gene': 'TRNR', 'product': 'tRNA-Arg'})
 >>> seq
@@ -392,24 +393,24 @@ Stats:
 --------------------------------------------------------------------
 0  TGGTATATAG TTTAAACAAA ACGAATGATT TCGACTCATT AAATTATGAT AATCATATTT
 60 ACCAA
-```
+``` python
 
 Access the metadata by key:
 
-```
+``` python         
 >>> seq.metadata['product']
 'tRNA-Arg'
-```
+``` python
 
 Modify the metadata of an existing sequence:
 
-```
+``` python         
 >>> seq.metadata['organism'] = 'Homo sapiens'
-```
+``` python
 
 Many of scikit-bio’s file format parsers can automatically populate metadata fields. For example, the FASTA parser reads the sequence ID and description into the `id` and `description` fields:
 
-```
+``` python         
 >>> from skbio.sequence import Protein
 >>> fasta = '''>NP_000591.1 interleukin-6 isoform 1 precursor [Homo sapiens]
 ... MNSFSTSAFGPVAFSLGLLLVLPAAFPAPVPPGEDSKDVAAPHRQPLTSSERIDKQIRYILDGISALRKE
@@ -434,11 +435,11 @@ Stats:
 60  LDGISALRKE TCNKSNMCES SKEALAENNL NLPKMAEKDG CFQSGFNEET CLVKIITGLL
 120 EFEVYLEYLQ NRFESSEEQA RAVQMSTKVL IQFLQKKAKN LDAITTPDPT TNASLLTKLQ
 180 AQNQWLQDMT THLILRSFKE FLQSSLRALR QM
-```
+``` python
 
 `positional_metadata` stores per-character properties. Each property has the same number of values as the sequence length. The following example annotates three types of sites on the human TP53 protein sequence.
 
-```
+``` python         
 >>> seq = (
 ...     'MEEPQSDPSVEPPLSQETFSDLWKLLPENNVLSPLPSQAMDDLMLSPDDIEQWFTEDPGPDEAPRMPEAA'
 ...     'PPVAPAPAAPTPAAPAPAPSWPLSSSVPSQKTYQGSYGFRLGFLHSGTAKSVTCTYSPALNKMFCQLAKT'
@@ -459,11 +460,11 @@ Stats:
 ...               positional_metadata={'acetylation': acetylation,
 ...                                    'methylation': methylation,
 ...                                    'phosphorylation': phosphorylation})
-```
+``` python
 
 Once created, positional metadata are stored as a dataframe.
 
-```
+``` python         
 >>> print(seq.positional_metadata)
      acetylation  methylation  phosphorylation
 0          False        False            False
@@ -479,11 +480,11 @@ Once created, positional metadata are stored as a dataframe.
 392        False        False            False
 
 [393 rows x 3 columns]
-```
+``` python
 
 Likewise, scikit-bio’s [`FASTQ`](https://scikit.bio/docs/latest/generated/skbio.io.format.fastq.html#module-skbio.io.format.fastq "skbio.io.format.fastq") parser can automatically populate the “quality” column of the positional metadata:
 
-```
+``` python         
 >>> fastq = '''@S00001/1
 ... CGTGCTCCACGCTCTCCTGCACGCCCGAGCCGTTGCGGTCGGCGAGAGCCATGTCGACGGCGGGCTTGAG
 ... +
@@ -507,9 +508,9 @@ Stats:
 --------------------------------------------------------------------
 0  CGTGCTCCAC GCTCTCCTGC ACGCCCGAGC CGTTGCGGTC GGCGAGAGCC ATGTCGACGG
 60 CGGGCTTGAG
-```
+``` python
 
-```
+``` python         
 >>> print(seq.positional_metadata['quality'])
 0     35
 1     35
@@ -523,11 +524,11 @@ Stats:
 68    35
 69    34
 Name: quality, Length: 70, dtype: uint8
-```
+``` python
 
 `interval_metadata` stores properties that span a range in the sequence, such as genes and regulatory elements. See the [`IntervalMetadata`](https://scikit.bio/docs/latest/generated/skbio.metadata.IntervalMetadata.html#skbio.metadata.IntervalMetadata "skbio.metadata.IntervalMetadata") class for details. The following example annotates three regions of the human H4C6 gene.
 
-```
+``` python         
 >>> fasta = '''>NM_003540.4 Homo sapiens H4 clustered histone 6 (H4C6), mRNA
 ... GCAAAAGTTAAGAGTTGTTGTTTGTCTTCGATCATGTCTGGTAGAGGCAAAGGTGGTAAAGGTTTAGGAA
 ... AGGGAGGCGCCAAGCGCCATCGCAAAGTGCTGCGTGACAACATACAGGGCATCACGAAGCCCGCCATCCG
@@ -539,19 +540,19 @@ Name: quality, Length: 70, dtype: uint8
 >>> _ = seq.interval_metadata.add(bounds=[(0, 401)], metadata={'name': 'exon'})
 >>> _ = seq.interval_metadata.add(bounds=[(33, 345)], metadata={'name': 'cds'})
 >>> _ = seq.interval_metadata.add(bounds=[(385, 401)], metadata={'name': 'stem_loop'})
-```
+``` python
 
 scikit-bio’s [`GFF3`](https://scikit.bio/docs/latest/generated/skbio.io.format.gff3.html#module-skbio.io.format.gff3 "skbio.io.format.gff3") parser can read sequence annotation into interval metadata. The following code reads a genome’s sequence and annotation from separate files and combine.
 
-```
+``` python         
 >>> from skbio.metadata import IntervalMetadata
 >>> seq = DNA.read('genomic.fna', format='fasta')
 >>> seq.interval_metadata = IntervalMetadata.read(
 ...     'genomic.gff', format='gff3', seq_id=seq.metadata['id'])
-```
+``` python
 
 If the GFF3 contains the sequence, one can read the sequence and annotation all at once:
 
-```
+``` python         
 >>> seq = DNA.read('genomic.gff', format='gff3')
-```
+``` python
