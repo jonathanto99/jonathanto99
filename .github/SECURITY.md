@@ -2,20 +2,22 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+This repository is maintained on `main`. Security fixes are accepted for the current branch and any published release. Older branches are not actively supported.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+The latest stable versions of Python, R and other languages will be supported. 
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you discover a security issue, report it privately by opening a private GitHub issue or using GitHub Security Advisories.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Please include:
+- affected commit, branch, or release
+- reproduction steps
+- sample input files if applicable
+- expected and actual behavior
+
+Do not disclose the issue publicly until it has been addressed.
+
+## Scope
+
+This project serves as a personal GitHub landing page containing small Python and R scripts for personal interests. The primary security concerns are dependency vulnerabilities, not hosted authentication services.
