@@ -1,8 +1,6 @@
 ---
 title: "Biological Sequences (skbio.sequence) — scikit-bio 0.7.2 documentation"
 source: "https://scikit.bio/docs/latest/sequence.html"
-author:
-published:
 created: 2026-03-07
 description: "Storing and working with sequences: nucleotides, amino acids, custom alphabets and unrestricted ones."
 tags:

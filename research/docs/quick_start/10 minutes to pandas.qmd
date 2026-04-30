@@ -1,10 +1,8 @@
 ---
 title: "10 minutes to pandas — pandas 3.0.1 documentation"
 source: "https://pandas.pydata.org/docs/user_guide/10min.html"
-author:
 published:
 created: 2026-03-07
-description:
 tags:
   - "clippings"
 ---
