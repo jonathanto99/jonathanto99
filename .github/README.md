@@ -10,7 +10,7 @@ I am a dual-threat wet/dry lab researcher currently engineering the Python infra
 
 ### Research & Engineering Impact
 
-- **Proteomics Infrastructure (BYU MS Core):** Architected Python pipelines (Pandas/NumPy) for the Orbitrap Astral, scaling daily capacity by 10x and reducing manual QC time by 85%.
+- **Proteomics Infrastructure (BYU MS Core):** Architected Python data analysis pipelines (Pandas/NumPy) for the Orbitrap Astral + Eclipse Tribrid MS, reducing total QC time by 85% and scaling daily capacity by 10x.
 - **Drug Discovery (Halia Therapeutics):** Executed high-throughput small molecule screening, modeling 150+ high-precision IC-50 curves via GraphPad Prism to drive lead compound selection for neuroinflammatory inhibitors.
 - **Virology Leadership (BYU):** Led a 5-person functional screening team, executing high-volume plaque assays and generating high-titer viral libraries for downstream characterization.
 
@@ -23,20 +23,20 @@ I am a dual-threat wet/dry lab researcher currently engineering the Python infra
 | **Programming & AI** | Python (Pandas, NumPy, Matplotlib), Git, AI Agents (Copilot, Manus) |
 | **Proteomics & Bioinfo** | FragPipe, DIA-NN, Proteome Discoverer, Basic RNAseq/Genomics pipelines |
 | **Wet Lab & Assays** | High-Throughput Screening (HTS), Flow Cytometry, ELISA, Phage Isolation, BSL-2 Cell Culture |
-| **Instrumentation** | Thermo Orbitrap Astral MS/MS, Cytoflex Flow Cytometer, Vanquish Neo UHPLC |
+| **Instrumentation** | Thermo Orbitrap Astral + Eclipse Tribrid MS, Cytoflex Flow Cytometer, Vanquish Neo UHPLC |
 
 ------------------------------------------------------------------------
 
 ### Production Architecture
 
--   [**BYU-MS-Core-Automative-Proteomics-Tools**](https://github.com/MSCoreLab/BYU-MS-Core-Automative-Proteomics-Tools) (Live Production Code)
-    -   **Overview:** The active OS powering the BYU Mass Spectrometry Core.
+-   [**MS-Proteomics-Tools**](https://github.com/jonathanto99/ms-proteomics-tools) (Live Production Code)
+    -   **Overview:** The active data analysis backbone powering the BYU Mass Spectrometry Core.
     -   **Tech:** CustomTkinter, NumPy, Pandas, Matplotlib.
-    -   **Key Metrics:** Enabled scaling to 100+ proteomes/day and ensured <20% CV validation across multi-lab studies.
+    -   **Key Metrics:** Reduced QC time by 85%, increase daily scaling to 10x, and ensured <7% CV validation across multi-lab studies.
 
 ------------------------------------------------------------------------
 
-### 📚 What I'm Currently Learning (2026 Focus)
+### What I'm Currently Learning (2026 Focus)
 - Scientific Writing & Literature Analysis
 - Applied Bioinformatics and Computational Genomics for clinical data
 - Molecular Virology and Tumor Immunology mechanisms
@@ -48,9 +48,9 @@ I am a dual-threat wet/dry lab researcher currently engineering the Python infra
 
 I am pursuing a **hybrid wet/dry lab trajectory** designed to bridge the gap between bench science and clinical application.
 
--   **Phase 0 (Current):** Graduate BYU with BS in Microbiology (April 2026).
--   **Phase 1 (2026-2027):** Enter industry to solidify wet-lab mastery while strengthening scientific foundation via self-study
--   **Phase 2 (2028-2029):** Complete MS in Bioinformatics/Computational Biology while working full-time.
+-   **Phase 0 (Current):** Graduated at BYU with BS in Microbiology (April 2026).
+-   **Phase 1 (2026-2027):** Enter industry to solidify wet-lab mastery while strengthening scientific foundation via self-study.
+-   **Phase 2 (2028-2029):** Complete MS in Bioinformatics/Computational Biology as a working professional.
 -   **Phase 3 (2030+):** Enter a premier PhD program in Oncolytic Virotherapy/Cancer Biology with unmatched dual-threat expertise.
 
 **Goal:** To combine clinical/industrial operational excellence with rigorous academic research training, ensuring therapies survive the transition from bench to bedside.
@@ -75,7 +75,7 @@ I am pursuing a **hybrid wet/dry lab trajectory** designed to bridge the gap bet
 
 ## Ask me about
 
--   **Computational Architecture for Wet Labs:** How to build automated MS/MS or screening pipelines using Python and AI agents.
+-   **Computational Architecture for Wet Labs:** How to build automated LC-MS or screening pipelines using Python and AI agents.
 -   **High-Throughput Screening:** Virological plaque assays, Flow Cytometry, and IC-50 modeling.
 -   **Non-Traditional Academic Paths:** Leveraging clinical/industry experience as a foundation for rigorous academic research.
 -   **Workflow Optimization:** Balancing demanding full-time lab, self-study, and academic timelines.
