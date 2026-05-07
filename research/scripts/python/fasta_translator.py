@@ -4,7 +4,7 @@ import sys
 import re
 import argparse
 
-# FASTA Translator - Final Exam: Extra Credit Problem (see .md file for more instructions)
+# FASTA Translator
 
 def exact_error():
     exact_error_message = (

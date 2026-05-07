@@ -1,8 +1,10 @@
+#! /usr/bin/env python
+
 """
 # Lab 5: DNA Toolbox
 * Pseudocode:
 List of Options
-Description of command-line options and their dependencies Options 	Parameter after the Option 	Expected Functionality 	Other Options Required to be Included
+Description of command-line options and their dependencies Options Parameter after the Option Expected Functionality Other Options Required to be Included
 -g 	N/A 	Calculate GC percent 	-i, -o
 -r 	N/A 	Reverse complement 	-i, -o
 -s 	N/A 	Transcription 	-i, -o
@@ -63,8 +65,6 @@ def countNucs(header, valid_sequence):
 """
 
 # * Program:
-#! /usr/bin/env python
-
 import sys
 import re
 import argparse

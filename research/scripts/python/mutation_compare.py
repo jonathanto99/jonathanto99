@@ -3,7 +3,7 @@
 import sys
 import argparse
 
-# Mutation Comparison Tool - Final Exam: Problem 2 (see .md file for more instructions)
+# Mutation Comparison Tool 
 
 def exact_error():
     exact_error_message = (
