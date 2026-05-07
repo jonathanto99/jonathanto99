@@ -3,7 +3,7 @@
 import sys
 import argparse
 
-# FASTA Sequence Analyzer - Final Exam: Problem 1 (see .md file for more instructions)
+# FASTA Sequence Analyzer
 
 def exact_error():
     exact_error_message = (
