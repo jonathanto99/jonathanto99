@@ -7,7 +7,7 @@ tags:
   - python
 ---
 
-## NumPy: the absolute basics for beginners
+# NumPy: the absolute basics for beginners
 
 Welcome to the absolute beginner’s guide to NumPy!
 
