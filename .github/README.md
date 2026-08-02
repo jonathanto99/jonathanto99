@@ -1,10 +1,10 @@
 # Hi, I'm Jonathan To 👋
 
-## Computational Biologist \| Microbiologist \| Proteomics Data Analyst
+## Computational Microbiologist | BioPharma QC Microbiology | Sterility Assurance
 
-> **"Bridging high-throughput computational automation with wet-lab assays and therapeutics discovery."**
+> **"Bridging high-speed computational analysis with wet-lab assays and quality control."**
 
-I am a dual-threat wet/dry lab researcher currently working as a **Microbiology Technician** for the **Nucleus RadioPharma**. My long-term focus is on **Precision Oncology**, and my interest is in implementing robust computational tools to advance translational cancer research.
+I am a dual-threat wet/dry lab researcher currently working as a **Microbiology Technician** for the **Nucleus RadioPharma**. My long-term focus is on **Precision Oncology**, and my interest is in implementing robust computational tools to advance translational cancer research and pharmaceutical manufacturing.
 
 ------------------------------------------------------------------------
 
