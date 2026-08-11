@@ -1,0 +1,26 @@
+f_name = input("What is your first name? ")
+l_name = input("and your last name?")
+
+email = input("What is your email? ")
+phone_number = input("What is your phone number? ")
+job_title = input("What is your job? ")
+ID_number = input("What is your ID number? ")
+
+hair_color = input("What is the color of your hair? ")
+eye_color = input("What is the color of your eyes? ")
+
+work_month = input("What month did you start working here? ")
+adx_training = input("Did you complete advanded training? ")
+
+print("The ID card number is: ")
+print("-" *35)
+print(f'{l_name.upper()}, {f_name.capitalize()}')
+print(f'{job_title.title()}')
+print(f'ID:{ID_number}')
+print()
+print(f'{email.lower()}')
+print(f'{phone_number}')
+print()
+print(f'Hair: {hair_color:15} Eyes: {eye_color}')
+print(f'Month: {work_month:14} Training: {adx_training}')
+print("-" *35)
