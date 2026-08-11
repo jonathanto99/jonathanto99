@@ -1,0 +1,11 @@
+Human	3,000,000,000
+Human_MT	16,569
+EBV	172,282
+E.Coli	5,440,000
+Yeast	12,495,682
+Mouse	2,800,000,000
+Amphibians	1,000,000,000
+Pufferfish	342,000,000
+C.Elegans	100,258,171
+Fruit_Fly	122,653,977
+Blue-green_alga	3,573,470
