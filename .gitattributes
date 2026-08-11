@@ -52,6 +52,7 @@ linguist-generated=true -diff
 # Categorize Jupyter notebooks specifically as documentation
 *.ipynb linguist-documentation=true
 *.ipynb linguist-detectable=false
+*.typ linguist-language=Typst
 
 # Large files handled by Git LFS
 *.png filter=lfs diff=lfs merge=lfs -text
