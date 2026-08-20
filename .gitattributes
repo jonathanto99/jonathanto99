@@ -45,13 +45,13 @@
 *.exe binary
 
 # Pixi SCM syntax highlighting & preventing 3-way merges
-pixi.lock merge=binary 
-linguist-language=YAML 
-linguist-generated=true -diff
+pixi.lock merge=binary linguist-generated=true -diff
 
 # Categorize Jupyter notebooks specifically as documentation
 *.ipynb linguist-documentation=true
 *.ipynb linguist-detectable=false
+
+# Identify Typst source
 *.typ linguist-language=Typst
 
 # Large files handled by Git LFS
