@@ -1,5 +1,5 @@
 [workspace]
-authors = ["Jonathan (ShueYi) To <toshuyi@gmail.com>"]
+authors = ["Jonathan (ShueYi) To <toshuyi@outlook.com>"]
 channels = ["conda-forge"]
 name = "jonathanto99"
 platforms = ["win-64"]
@@ -13,6 +13,8 @@ polars = ">=1.43.2,<2"
 plotnine = ">=0.15.8,<0.16"
 numpy = ">=2.5.2,<3"
 r-base = ">=4.6.1,<4.7"
+scanpy = ">=1.12.3,<2"
+pytorch = ">=2.13.0,<3"
 
 [pypi-dependencies]
 slint = ">=1.17.1b2, <2"
