@@ -1,4 +1,8 @@
+# Full Original Dataset Quarto Package
+
 MOCK PHARMACEUTICAL ENVIRONMENTAL MONITORING DATASET v1.0
+
+Uses the full original synthetic dataset: 3,298 EM and 229 personnel-monitoring records across 13 rooms. Entirely fictional and not for GMP use. This template is not Part 11 compliant by itself; deploy only within a validated controlled system/process. Render with `quarto render em_trend_report_template.qmd`.
 
 This package is entirely synthetic and is intended only for R/Python/SQL practice, portfolio work, and analytics training.
 It is not GMP data, not a validated system, and not a model EM program. Do not use the included limits, sampling design, or analytic assumptions to establish facility controls.
