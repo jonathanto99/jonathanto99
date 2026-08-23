@@ -26,7 +26,7 @@ This package uses the **full original synthetic dataset**: 13 rooms, 180 days, 3
 Report ID: `r params$report_id`; extract: `r params$approved_data_extract_id`; code release: `r params$code_release_id`; rendered: `r rendered_utc`.
 
 | Control area | Template support | Required organizational control |
-|---|---|---|
+|------------------------|------------------------|------------------------|
 | Intended performance | Visible parameters/calculations | Approved requirements, risk assessment, CSA/validation |
 | Inputs | SHA-256 manifest | Approved extract, reconciliation, controlled source system |
 | Audit trail | Render timestamp only | Secure independent time-stamped record audit trail |
@@ -88,8 +88,8 @@ kable(filter(events,event_start_date<=end,event_end_date>=start),caption="Contex
 Automated outputs are not quality conclusions. Document scientific assessment, investigations, CAPAs, action owners, and approvals in the validated quality system.
 
 | Finding | Assessment/action | Owner | Due date | Deviation/CAPA ID | Closure evidence |
-|---|---|---|---|---|---|
-| | | | | | |
+|------------|------------|------------|------------|------------|------------|
+|         |                   |       |          |                   |                  |
 
 # Execution metadata
 
