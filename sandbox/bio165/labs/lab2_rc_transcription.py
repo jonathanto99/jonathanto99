@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 """
 # Lab 2: Reverse Complement
 * Pseudocode:
@@ -25,10 +26,10 @@
 """
 
 # * Program:
-#! /usr/bin/env python
 
-import sys
 import re
+import sys
+
 
 def rev_comp(input_file, output_file):
     # Reverse complement logic

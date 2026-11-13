@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 """
 # Lab 4: Counting Nucleotides
 * Pseudocode:
@@ -61,9 +62,9 @@
 """
 
 # * Program:
-#! /usr/bin/env python
 
 import sys
+
 
 def getCount(str_to_look_in, char_to_count_in_str):
     count = 0
@@ -88,9 +89,7 @@ def isValidSequence(seq):
 def errorChecker(seq):
     if not seq.strip():
         return False
-    if not isValidSequence(seq):
-        return False
-    return True
+    return isValidSequence(seq)
 
 if getLength(sys.argv) != 3:
     print("ERROR: Incorrect number of arguments")

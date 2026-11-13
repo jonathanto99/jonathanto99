@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 """
 # Lab 3: Translation
 * Pseudocode:
@@ -39,7 +40,6 @@
 """
 
 # * Program:
-#! /usr/bin/env python
 
 import sys
 
@@ -65,9 +65,7 @@ def isValidSequence(seq):
 def errorChecker(seq):
     if not seq.strip():
         return False
-    if not isValidSequence(seq):
-        return False
-    return True
+    return isValidSequence(seq)
 
 
 def transcribe(seq):

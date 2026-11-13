@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 """
 # Lab 1: User Inputs and Conditional Statements
 * Pseudocode
@@ -12,7 +13,6 @@ There is no need for rounding. Just print out whatever Python gets from the calc
 """
 
 # * Program:
-#! /usr/bin/env python
 
 import sys
 

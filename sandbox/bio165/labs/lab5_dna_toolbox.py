@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 """
 # Lab 5: DNA Toolbox
 * Pseudocode:
@@ -63,11 +64,11 @@ def countNucs(header, valid_sequence):
 """
 
 # * Program:
-#! /usr/bin/env python
 
-import sys
-import re
 import argparse
+import re
+import sys
+
 
 def exactErrorMessage():
     exact_error_message = (
