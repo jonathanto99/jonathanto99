@@ -7,7 +7,7 @@
 *.log
 
 # Python
-__pycache__/
+.*cache*/
 *.pyc
 *.pyo
 *.pyd
@@ -116,7 +116,7 @@ desktop.ini
 *.mzXML
 
 # pixi environments
-.pixi/*
+.pixi/
 !.pixi/config.toml
 
 # Ruff
